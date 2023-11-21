@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit book</title>
+</head>
+<body>
+    <br>
+
+{% from "includes/_formhelpers.html" import render_field %}
+<div class="container">
+    
+    <div class="panel panel-primary">
+    <div class="panel-heading">
+    <h1 align="center">Form Edit Buku</h1>
+    </div>
+    <div class="row">
+    <div class="panel-body">
+        <form method="POST" action="">
+        
+        <div class="form-group">
+            <div class="col-sm-6">
+            {{render_field(form.id, class_="form-control", value=book.id)}}
+            </div>
+        </div><br>
+        <div class="form-group">
+            <div class="col-sm-6">
+            {{render_field(form.title, class_="form-control", value=book.title)}}
+            </div>
+        </div><br>
+        <div class="form-group">
+            <div class="col-sm-6">
+            {{render_field(form.author, class_="form-control", value=book.author)}}
+            </div>
+        </div><br>
+        <div class="form-group">
+            <div class="col-sm-6">
+            {{render_field(form.average_rating, class_="form-control", value=book.average_rating)}}
+            </div>
+        </div><br>
+        <div class="form-group">
+            <div class="col-sm-6">
+            {{render_field(form.isbn, class_="form-control", value=book.isbn)}}
+            </div>
+        </div><br>
+        <div class="form-group">
+            <div class="col-sm-6">
+            {{render_field(form.isbn13, class_="form-control", value=book.isbn13)}}
+            </div>
+        </div><br>
+        <div class="form-group">
+            <div class="col-sm-6">
+            {{render_field(form.language_code, class_="form-control", value=book.language_code)}}
+            </div>
+        </div><br>
+        <div class="form-group">
+            <div class="col-sm-6">
+            {{render_field(form.num_pages, class_="form-control", value=book.num_pages)}}
+            </div>
+        </div><br>
+        <div class="form-group">
+            <div class="col-sm-6">
+            {{render_field(form.ratings_count, class_="form-control", value=book.ratings_count)}}
+            </div>
+        </div><br>
+        <div class="form-group">
+            <div class="col-sm-6">
+            {{render_field(form.text_reviews_count, class_="form-control", value=book.text_reviews_count)}}
+            </div>
+        </div><br>
+        <div class="form-group">
+            <div class="col-sm-6">
+            {{render_field(form.publication_date, class_="form-control", type="date", value=book.publication_date)}}
+            </div>
+        </div><br>
+        <div class="form-group">
+            <div class="col-sm-6">
+            {{render_field(form.publisher, class_="form-control", value=book.publisher)}}
+            </div>
+        </div><br>
+        <div class="form-group">
+            <div class="col-sm-6">
+            {{render_field(form.total_quantity, class_="form-control", value=book.total_quantity)}}
+            <br>
+            <p><button type="submit" class="btn btn-primary" value="Submit">Submit</button></p>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

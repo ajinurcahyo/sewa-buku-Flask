@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kembalikan buku</title>
+</head>
+<body>
+    <br>
+    <h2><b>Pengembalian Buku</b></h2>
+    <h5>Harga Sewa /hari = {{transaction['per_day_fee']}}</h5>
+    <h5>Tanggal Sewa = {{transaction['borrowed_on']}}</h5>
+    <h5>Disewa Untuk = {{difference}} Hari</h5>
+    <h5>Jumlah Tagihan = <b>{{total_charge}}</b></h5>
+    <hr>
+    <br>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form method="POST" action="">
+        <div class="form-group">
+            {{render_field(form.amount_paid, class_="form-control")}}
+        </div>
+        <br>
+        <p><button type="submit" class="btn btn-primary" value="Submit">Submit</button></p>
+    </form>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>member</title>
+</head>
+<body>
+    <br>
+    <h1>Member</h1>
+    <a class="btn btn-success" href="/add_member">Tambah Member</a>
+    <hr>
+    {% if members%}
+    <table class="table table-light table-striped">
+        <thead class="table table-primary">
+            <tr>
+                <th>Member ID</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Tanggal Registrasi</th>
+                <th>Total Pengeluaran</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <td>{{member.id}}</td>
+                <td>{{member.name}}</td>
+                <td>{{member.email}}</td>
+                <td>{{member.registered_on}}</td>
+                <td>{{member.amount_spent}}</td>
+                <td><a href="edit_member/{{member.id}}" class="btn btn-warning pull-right">Edit</a></td>
+                <td>
+                    <form action="{{url_for('delete_member', id=member.id)}}" method="POST"
+                        onsubmit="return confirm('Are you sure you want to delete this member?');">
+                        <input type="hidden" name="method" value="Delete">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% endblock %}
+</body>
+</html>
